@@ -12,23 +12,114 @@
 <meta property="article:tag" content="Hexo">
 <meta property="article:tag" content="博客">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.111666.best/image/6cpAdPSSKXY1iCQg1txniq.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://20001106.xyz/2024/01/23/%E5%BB%BA%E7%AB%99%E7%AC%AC%E4%B8%80%E5%A4%A9/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+<meta name="twitter:image" content="https://i.111666.best/image/6cpAdPSSKXY1iCQg1txniq.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://20001106.xyz/2024/01/23/%E5%BB%BA%E7%AB%99%E7%AC%AC%E4%B8%80%E5%A4%A9/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css?v=5.1.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        if (name && globalFn[key][name]) return
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
   root: '/',
   algolia: undefined,
   localSearch: undefined,
   translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
   noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"距离上次更新已经过了","messageNext":"天, 该文章的内容可能过期，请注意甄别."},
-  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
   copy: {
     success: '复制成功',
-    error: '复制错误',
+    error: '复制失败',
     noSupport: '浏览器不支持'
   },
   relativeDate: {
     homepage: false,
     post: false
   },
-  runtime: '天',
+  runtime: '',
   dateSuffix: {
     just: '刚刚',
     min: '分钟前',
@@ -37,10 +128,10 @@
     month: '个月前'
   },
   copyright: undefined,
-  lightbox: 'fancybox',
+  lightbox: 'null',
   Snackbar: undefined,
   infinitegrid: {
-    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.12.0/dist/infinitegrid.min.js',
     buttonText: '加载更多'
   },
   isPhotoFigcaption: false,
@@ -58,103 +149,7 @@
   isHighlightShrink: false,
   isToc: false,
   postUpdate: '2024-07-05 09:23:35'
-}</script><script>(win=>{
-      win.saveToLocal = {
-        set: (key, value, ttl) => {
-          if (ttl === 0) return
-          const now = Date.now()
-          const expiry = now + ttl * 86400000
-          const item = {
-            value,
-            expiry
-          }
-          localStorage.setItem(key, JSON.stringify(item))
-        },
-      
-        get: key => {
-          const itemStr = localStorage.getItem(key)
-      
-          if (!itemStr) {
-            return undefined
-          }
-          const item = JSON.parse(itemStr)
-          const now = Date.now()
-      
-          if (now > item.expiry) {
-            localStorage.removeItem(key)
-            return undefined
-          }
-          return item.value
-        }
-      }
-    
-      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
-        const script = document.createElement('script')
-        script.src = url
-        script.async = true
-        script.onerror = reject
-        script.onload = script.onreadystatechange = function() {
-          const loadState = this.readyState
-          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-          script.onload = script.onreadystatechange = null
-          resolve()
-        }
-
-        Object.keys(attr).forEach(key => {
-          script.setAttribute(key, attr[key])
-        })
-
-        document.head.appendChild(script)
-      })
-    
-      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
-        const link = document.createElement('link')
-        link.rel = 'stylesheet'
-        link.href = url
-        if (id) link.id = id
-        link.onerror = reject
-        link.onload = link.onreadystatechange = function() {
-          const loadState = this.readyState
-          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-          link.onload = link.onreadystatechange = null
-          resolve()
-        }
-        document.head.appendChild(link)
-      })
-    
-      win.activateDarkMode = () => {
-        document.documentElement.setAttribute('data-theme', 'dark')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-        }
-      }
-      win.activateLightMode = () => {
-        document.documentElement.setAttribute('data-theme', 'light')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-        }
-      }
-      const t = saveToLocal.get('theme')
-    
-        if (t === 'dark') activateDarkMode()
-        else if (t === 'light') activateLightMode()
-      
-      const asideStatus = saveToLocal.get('aside-status')
-      if (asideStatus !== undefined) {
-        if (asideStatus === 'hide') {
-          document.documentElement.classList.add('hide-aside')
-        } else {
-          document.documentElement.classList.remove('hide-aside')
-        }
-      }
-    
-      const detectApple = () => {
-        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
-          document.documentElement.classList.add('apple')
-        }
-      }
-      detectApple()
-    })(window)</script><meta name="generator" content="Hexo 7.1.1"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">18</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://i.111666.best/image/6cpAdPSSKXY1iCQg1txniq.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Aerbeita's 博客"><span class="site-name">Aerbeita's 博客</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">建站第一天</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-01-23T05:37:53.000Z" title="发表于 2024-01-23 13:37:53">2024-01-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-07-05T01:23:35.283Z" title="更新于 2024-07-05 09:23:35">2024-07-05</time></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>今天是我建站的第一天</p>
+}</script><meta name="generator" content="Hexo 7.1.1"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">18</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://i.111666.best/image/6cpAdPSSKXY1iCQg1txniq.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Aerbeita's 博客</span></a><a class="nav-page-title" href="/"><span class="site-name">建站第一天</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">建站第一天</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-01-23T05:37:53.000Z" title="发表于 2024-01-23 13:37:53">2024-01-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-07-05T01:23:35.283Z" title="更新于 2024-07-05 09:23:35">2024-07-05</time></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>今天是我建站的第一天</p>
 <p>时间为：2024年02月23日 13:38:46</p>
 <p>欢迎大家多多指教。</p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://20001106.xyz">Aerbeita</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://20001106.xyz/2024/01/23/%E5%BB%BA%E7%AB%99%E7%AC%AC%E4%B8%80%E5%A4%A9/">http://20001106.xyz/2024/01/23/建站第一天/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://20001106.xyz" target="_blank">Aerbeita's 博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Hexo/">Hexo</a><a class="post-meta__tags" href="/tags/%E5%8D%9A%E5%AE%A2/">博客</a></div><div class="post_share"><div class="social-share" data-image="https://i.111666.best/image/6cpAdPSSKXY1iCQg1txniq.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/2024/03/01/Markdown-%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/" title="Markdown-基础学习"><img class="cover" src="https://i.111666.best/image/6zg87HifAh4psLpIEPyizJ.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Markdown-基础学习</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/09/13/Butterfly-%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3-%E4%BA%8C-%E4%B8%BB%E9%A2%98%E9%A1%B5%E9%9D%A2/" title="Butterfly 安装文档（二） 主题页面"><img class="cover" src="https://i.111666.best/image/7ECh4slBgOyqoNGLgBJPa9.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-09-13</div><div class="title">Butterfly 安装文档（二） 主题页面</div></div></a></div><div><a href="/2024/05/09/Front-matter-%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AE%A4%E8%AF%86/" title="Front-matter 的基本认识（anzhiyu）"><img class="cover" src="https://i.111666.best/image/AHOcaTsuObqK2qcPVIkZuk.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-09</div><div class="title">Front-matter 的基本认识（anzhiyu）</div></div></a></div><div><a href="/2024/04/01/Hexo%E7%9A%84%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" title="Hexo的常用指令"><img class="cover" src="https://i.111666.best/image/dFko5wL3wzMFRKw8oL2JWz.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-01</div><div class="title">Hexo的常用指令</div></div></a></div><div><a href="/2024/04/02/%E4%BD%BF%E7%94%A8Hexo%E5%86%99%E4%BD%9C%E7%9A%84%E6%AD%A3%E7%A1%AE%E5%A7%BF%E5%8A%BF/" title="使用Hexo写作的正确姿势"><img class="cover" src="https://i.111666.best/image/hIN1YODz0rdPNga4yVM1UA.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-02</div><div class="title">使用Hexo写作的正确姿势</div></div></a></div><div><a href="/2024/09/04/%E5%8D%9A%E5%AE%A2%E6%9B%B4%E6%8D%A2%E4%B8%BB%E9%A2%98/" title="博客更换主题"><img class="cover" src="https://i.111666.best/image/U1xCHypUvawCsGsHGNac19.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-09-04</div><div class="title">博客更换主题</div></div></a></div><div><a href="/2024/09/19/Butterfly-%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3-%E4%B8%89-%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE-1/" title="Butterfly 安装文档（三） 主题配置-1"><img class="cover" src="https://i.111666.best/image/X2TqCsCh93IdV1FsBSWDGF.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-09-19</div><div class="title">Butterfly 安装文档（三） 主题配置-1</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Aerbeita</div><div class="author-info__description">分享各种有趣的内容和学习的笔记，记录生活的点点滴滴。</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">18</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Barry-Aerbeita-zhou"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Barry-Aerbeita-zhou" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">循此苦旅，直抵群星</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/09/19/Butterfly-%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3-%E4%B8%89-%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE-1/" title="Butterfly 安装文档（三） 主题配置-1"><img src="https://i.111666.best/image/X2TqCsCh93IdV1FsBSWDGF.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Butterfly 安装文档（三） 主题配置-1"/></a><div class="content"><a class="title" href="/2024/09/19/Butterfly-%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3-%E4%B8%89-%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE-1/" title="Butterfly 安装文档（三） 主题配置-1">Butterfly 安装文档（三） 主题配置-1</a><time datetime="2024-09-19T01:20:13.000Z" title="发表于 2024-09-19 09:20:13">2024-09-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/09/13/Butterfly-%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3-%E4%BA%8C-%E4%B8%BB%E9%A2%98%E9%A1%B5%E9%9D%A2/" title="Butterfly 安装文档（二） 主题页面"><img src="https://i.111666.best/image/7ECh4slBgOyqoNGLgBJPa9.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Butterfly 安装文档（二） 主题页面"/></a><div class="content"><a class="title" href="/2024/09/13/Butterfly-%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3-%E4%BA%8C-%E4%B8%BB%E9%A2%98%E9%A1%B5%E9%9D%A2/" title="Butterfly 安装文档（二） 主题页面">Butterfly 安装文档（二） 主题页面</a><time datetime="2024-09-13T01:15:31.000Z" title="发表于 2024-09-13 09:15:31">2024-09-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/09/13/Butterfly-%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3-%E4%B8%80-%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/" title="Butterfly 安装文档（一） 快速开始"><img src="https://i.111666.best/image/CvVNjXCzMaia4njqqPtBF0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Butterfly 安装文档（一） 快速开始"/></a><div class="content"><a class="title" href="/2024/09/13/Butterfly-%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3-%E4%B8%80-%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/" title="Butterfly 安装文档（一） 快速开始">Butterfly 安装文档（一） 快速开始</a><time datetime="2024-09-13T00:48:50.000Z" title="发表于 2024-09-13 08:48:50">2024-09-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/09/04/%E5%8D%9A%E5%AE%A2%E6%9B%B4%E6%8D%A2%E4%B8%BB%E9%A2%98/" title="博客更换主题"><img src="https://i.111666.best/image/U1xCHypUvawCsGsHGNac19.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="博客更换主题"/></a><div class="content"><a class="title" href="/2024/09/04/%E5%8D%9A%E5%AE%A2%E6%9B%B4%E6%8D%A2%E4%B8%BB%E9%A2%98/" title="博客更换主题">博客更换主题</a><time datetime="2024-09-04T01:06:31.000Z" title="发表于 2024-09-04 09:06:31">2024-09-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/09/02/Linux-%E5%B0%8F%E8%AE%B0/" title="Linux 小记 —— rsync命令"><img src="https://i.111666.best/image/kwGMXPwdWpaUSFoc6njZQb.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux 小记 —— rsync命令"/></a><div class="content"><a class="title" href="/2024/09/02/Linux-%E5%B0%8F%E8%AE%B0/" title="Linux 小记 —— rsync命令">Linux 小记 —— rsync命令</a><time datetime="2024-09-02T08:14:20.000Z" title="发表于 2024-09-02 16:14:20">2024-09-02</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2024 By Aerbeita</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="/js/tw_cn.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div></div></body></html>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://20001106.xyz">Aerbeita</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://20001106.xyz/2024/01/23/%E5%BB%BA%E7%AB%99%E7%AC%AC%E4%B8%80%E5%A4%A9/">http://20001106.xyz/2024/01/23/建站第一天/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://20001106.xyz" target="_blank">Aerbeita's 博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Hexo/">Hexo</a><a class="post-meta__tags" href="/tags/%E5%8D%9A%E5%AE%A2/">博客</a></div><div class="post-share"><div class="social-share" data-image="https://i.111666.best/image/6cpAdPSSKXY1iCQg1txniq.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.4/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.4/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2024/03/01/Markdown-%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/" title="Markdown-基础学习"><img class="cover" src="https://i.111666.best/image/6zg87HifAh4psLpIEPyizJ.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">Markdown-基础学习</div></div><div class="info-2"><div class="info-item-1">Markdown是一种轻量级标记语言，排版语法简洁，本篇用于记录初学者经常用到的几个语法。</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2024/09/13/Butterfly-%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3-%E4%BA%8C-%E4%B8%BB%E9%A2%98%E9%A1%B5%E9%9D%A2/" title="Butterfly 安装文档（二） 主题页面"><img class="cover" src="https://i.111666.best/image/7ECh4slBgOyqoNGLgBJPa9.jpeg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-09-13</div><div class="info-item-2">Butterfly 安装文档（二） 主题页面</div></div><div class="info-2"><div class="info-item-1">源自文档：Butterfly 安装文档(二) 主题页面 Front-matterFront-matter 是 markdown 文件最上方以 --- 分隔的区域，用于指定个别档案的变数。  Page Front-matter 用于页面配置 Post Front-matter 用于文章页配置   如果标注可选的参数，可根据自己需要添加，不用全部都写在 markdown 里  Page...</div></div></div></a><a class="pagination-related" href="/2024/05/09/Front-matter-%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AE%A4%E8%AF%86/" title="Front-matter 的基本认识（anzhiyu）"><img class="cover" src="https://i.111666.best/image/AHOcaTsuObqK2qcPVIkZuk.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-09</div><div class="info-item-2">Front-matter 的基本认识（anzhiyu）</div></div><div class="info-2"><div class="info-item-1">Front-matter 是 markdown 文件最上方以 --- 分隔的区域，用于指定个别档案的变数。</div></div></div></a><a class="pagination-related" href="/2024/04/01/Hexo%E7%9A%84%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" title="Hexo的常用指令"><img class="cover" src="https://i.111666.best/image/dFko5wL3wzMFRKw8oL2JWz.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-01</div><div class="info-item-2">Hexo的常用指令</div></div><div class="info-2"><div class="info-item-1">Hexo中的常用指令</div></div></div></a><a class="pagination-related" href="/2024/04/02/%E4%BD%BF%E7%94%A8Hexo%E5%86%99%E4%BD%9C%E7%9A%84%E6%AD%A3%E7%A1%AE%E5%A7%BF%E5%8A%BF/" title="使用Hexo写作的正确姿势"><img class="cover" src="https://i.111666.best/image/hIN1YODz0rdPNga4yVM1UA.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-02</div><div class="info-item-2">使用Hexo写作的正确姿势</div></div><div class="info-2"><div class="info-item-1">Hexo写作教程</div></div></div></a><a class="pagination-related" href="/2024/09/04/%E5%8D%9A%E5%AE%A2%E6%9B%B4%E6%8D%A2%E4%B8%BB%E9%A2%98/" title="博客更换主题"><img class="cover" src="https://i.111666.best/image/U1xCHypUvawCsGsHGNac19.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-09-04</div><div class="info-item-2">博客更换主题</div></div><div class="info-2"><div class="info-item-1">博客主题更换为Butterfly。</div></div></div></a><a class="pagination-related" href="/2024/09/19/Butterfly-%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3-%E4%B8%89-%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE-1/" title="Butterfly 安装文档（三） 主题配置-1"><img class="cover" src="https://i.111666.best/image/X2TqCsCh93IdV1FsBSWDGF.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-09-19</div><div class="info-item-2">Butterfly 安装文档（三） 主题配置-1</div></div><div class="info-2"><div class="info-item-1">源自文档：Butterfly 安装文档(三) 主题配置-1 语言修改站点配置文件 _config.yml 默认语言是 en 主题支持三种语言  default(en) zh-CN (简体中文) zh-TW (繁体中文)  网站资料修改网站各种资料，例如标题、副标题和邮箱等个人资料，请修改博客根目录的 _config.yml 导航栏设置 (Navigation bar settings)参数设置主题配置文件中 1234nav:  logo: #image  display_title: true  fixed: false # fixed navigation bar     参数 解释    logo 网站的 logo，支持图片，直接填入图片链接   display_title 是否显示网站标题，填写 true 或者 false   fixed 是否固定状态栏，填写 true 或者 false   菜单&#x2F;目录修改 主题配置文件 123456789Home: / || fas fa-homeArchives: /archives/ || fas...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Aerbeita</div><div class="author-info-description">分享各种有趣的内容和学习的笔记，记录生活的点点滴滴。</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">18</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Barry-Aerbeita-zhou"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/Barry-Aerbeita-zhou" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">循此苦旅，直抵群星</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/09/19/Butterfly-%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3-%E4%B8%89-%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE-1/" title="Butterfly 安装文档（三） 主题配置-1"><img src="https://i.111666.best/image/X2TqCsCh93IdV1FsBSWDGF.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Butterfly 安装文档（三） 主题配置-1"/></a><div class="content"><a class="title" href="/2024/09/19/Butterfly-%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3-%E4%B8%89-%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE-1/" title="Butterfly 安装文档（三） 主题配置-1">Butterfly 安装文档（三） 主题配置-1</a><time datetime="2024-09-19T01:20:13.000Z" title="发表于 2024-09-19 09:20:13">2024-09-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/09/13/Butterfly-%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3-%E4%BA%8C-%E4%B8%BB%E9%A2%98%E9%A1%B5%E9%9D%A2/" title="Butterfly 安装文档（二） 主题页面"><img src="https://i.111666.best/image/7ECh4slBgOyqoNGLgBJPa9.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Butterfly 安装文档（二） 主题页面"/></a><div class="content"><a class="title" href="/2024/09/13/Butterfly-%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3-%E4%BA%8C-%E4%B8%BB%E9%A2%98%E9%A1%B5%E9%9D%A2/" title="Butterfly 安装文档（二） 主题页面">Butterfly 安装文档（二） 主题页面</a><time datetime="2024-09-13T01:15:31.000Z" title="发表于 2024-09-13 09:15:31">2024-09-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/09/13/Butterfly-%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3-%E4%B8%80-%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/" title="Butterfly 安装文档（一） 快速开始"><img src="https://i.111666.best/image/CvVNjXCzMaia4njqqPtBF0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Butterfly 安装文档（一） 快速开始"/></a><div class="content"><a class="title" href="/2024/09/13/Butterfly-%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3-%E4%B8%80-%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/" title="Butterfly 安装文档（一） 快速开始">Butterfly 安装文档（一） 快速开始</a><time datetime="2024-09-13T00:48:50.000Z" title="发表于 2024-09-13 08:48:50">2024-09-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/09/04/%E5%8D%9A%E5%AE%A2%E6%9B%B4%E6%8D%A2%E4%B8%BB%E9%A2%98/" title="博客更换主题"><img src="https://i.111666.best/image/U1xCHypUvawCsGsHGNac19.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="博客更换主题"/></a><div class="content"><a class="title" href="/2024/09/04/%E5%8D%9A%E5%AE%A2%E6%9B%B4%E6%8D%A2%E4%B8%BB%E9%A2%98/" title="博客更换主题">博客更换主题</a><time datetime="2024-09-04T01:06:31.000Z" title="发表于 2024-09-04 09:06:31">2024-09-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/09/02/Linux-%E5%B0%8F%E8%AE%B0/" title="Linux 小记 —— rsync命令"><img src="https://i.111666.best/image/kwGMXPwdWpaUSFoc6njZQb.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux 小记 —— rsync命令"/></a><div class="content"><a class="title" href="/2024/09/02/Linux-%E5%B0%8F%E8%AE%B0/" title="Linux 小记 —— rsync命令">Linux 小记 —— rsync命令</a><time datetime="2024-09-02T08:14:20.000Z" title="发表于 2024-09-02 16:14:20">2024-09-02</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2024 By Aerbeita</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.1.0"></script><script src="/js/main.js?v=5.1.0"></script><script src="/js/tw_cn.js?v=5.1.0"></script><div class="js-pjax"></div></div></body></html>
