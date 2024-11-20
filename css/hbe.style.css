@@ -81,10 +81,11 @@
 }
 
 /* hbe button in post page */
+/*
 .hbe-button {
   width: 130px;
   height: 40px;
-  background: linear-gradient(to bottom, #4eb5e5 0%,#389ed5 100%); /* W3C */
+  background: linear-gradient(to bottom, #4eb5e5 0%,#389ed5 100%);
   border: none;
   border-radius: 5px;
   position: relative;
@@ -124,6 +125,64 @@
   top: 0;
   border-radius: 0 5px 5px 0;
 }
+*/
+
+/* hbe-button 样式 */
+.hbe-button,
+.hbe-button:focus {
+  position: relative;
+  z-index: 1;
+  min-width: 200px;
+  border: 2px solid #b0b0b0; /* 浅灰色边框 */
+  border-radius: 0; /* 方形角 */
+  color: #333333; /* 默认黑色文字 */
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+  padding: 10px 20px;
+  background-color: #f0f0f0; /* 浅灰色背景 */
+  display: block;
+  margin: 0 auto;
+}
+
+/* hbe-button的伪元素动画 */
+.hbe-button:after {
+  content: "";
+  position: absolute;
+  height: 0%;
+  left: 50%;
+  top: 50%;
+  width: 150%;
+  z-index: -1;
+  background: #D24D57; /* 浅蓝色背景 */
+  -moz-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+  -ms-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+  -webkit-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+  transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+  -webkit-transition: all 0.75s ease 0s;
+  -moz-transition: all 0.75s ease 0s;
+  -o-transition: all 0.75s ease 0s;
+  transition: all 0.75s ease 0s;
+}
+
+/* 悬停效果 */
+.hbe-button:hover {
+  color: #ffffff; /* 悬浮时字体为白色 */
+  text-shadow: none; /* 悬浮时移除文字阴影 */
+}
+
+.hbe-button:hover:after {
+  height: 450%; /* 背景扩展动画 */
+}
+
 /* hbe button in post page */
 
 /* default theme {{{ */
@@ -306,7 +365,7 @@
 	width: 100%;
 	background: transparent;
 	color: #9da8b2;
-	font-size: 1.25em;
+	font-size: 1.5em;
 }
 
 .hbe-input-label-wave {
