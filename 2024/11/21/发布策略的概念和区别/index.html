@@ -1,0 +1,220 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>发布策略的概念和区别 | Aerbeita's 博客</title><meta name="author" content="Aerbeita,2981571473@qq.com"><meta name="copyright" content="Aerbeita"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="有东西被加密了, 请输入密码查看.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="发布策略的概念和区别">
+<meta property="og:url" content="http://20001106.xyz/2024/11/21/%E5%8F%91%E5%B8%83%E7%AD%96%E7%95%A5%E7%9A%84%E6%A6%82%E5%BF%B5%E5%92%8C%E5%8C%BA%E5%88%AB/index.html">
+<meta property="og:site_name" content="Aerbeita&#39;s 博客">
+<meta property="og:description" content="有东西被加密了, 请输入密码查看.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.111666.best/image/u2WJi1iXEoOv0df4Eh8Ku9.jpg">
+<meta property="article:published_time" content="2024-11-21T08:27:25.000Z">
+<meta property="article:modified_time" content="2024-11-21T08:54:10.147Z">
+<meta property="article:author" content="Aerbeita">
+<meta property="article:tag" content="学习">
+<meta property="article:tag" content="加密">
+<meta property="article:tag" content="发布">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.111666.best/image/u2WJi1iXEoOv0df4Eh8Ku9.jpg"><link rel="shortcut icon" href="/img/favicons/favicon.ico"><link rel="canonical" href="http://20001106.xyz/2024/11/21/%E5%8F%91%E5%B8%83%E7%AD%96%E7%95%A5%E7%9A%84%E6%A6%82%E5%BF%B5%E5%92%8C%E5%8C%BA%E5%88%AB/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '发布策略的概念和区别',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  isShuoshuo: false
+}</script><meta name="generator" content="Hexo 7.1.1"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">24</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">21</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li><li><a class="site-page child" href="/essays/"><i class="fa-fw fas fa-edit"></i><span> 随笔</span></a></li><li><a class="site-page child" href="/notes/"><i class="fa-fw fas fa-sticky-note"></i><span> 笔记</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-gamepad"></i><span> 娱乐</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-face-smile-wink"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://i.111666.best/image/u2WJi1iXEoOv0df4Eh8Ku9.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Aerbeita's 博客</span></a><a class="nav-page-title" href="/"><span class="site-name">发布策略的概念和区别</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li><li><a class="site-page child" href="/essays/"><i class="fa-fw fas fa-edit"></i><span> 随笔</span></a></li><li><a class="site-page child" href="/notes/"><i class="fa-fw fas fa-sticky-note"></i><span> 笔记</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-gamepad"></i><span> 娱乐</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-face-smile-wink"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">发布策略的概念和区别</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-11-21T08:27:25.000Z" title="发表于 2024-11-21 16:27:25">2024-11-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-11-21T08:54:10.147Z" title="更新于 2024-11-21 16:54:10">2024-11-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">9</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>1分钟</span></span><span class="post-meta-separator">|</span><span id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span class="waline-pageview-count" data-path="/2024/11/21/%E5%8F%91%E5%B8%83%E7%AD%96%E7%95%A5%E7%9A%84%E6%A6%82%E5%BF%B5%E5%92%8C%E5%8C%BA%E5%88%AB/"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2024/11/21/%E5%8F%91%E5%B8%83%E7%AD%96%E7%95%A5%E7%9A%84%E6%A6%82%E5%BF%B5%E5%92%8C%E5%8C%BA%E5%88%AB/#post-comment"><span class="waline-comment-count" data-path="/2024/11/21/%E5%8F%91%E5%B8%83%E7%AD%96%E7%95%A5%E7%9A%84%E6%A6%82%E5%BF%B5%E5%92%8C%E5%8C%BA%E5%88%AB/"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="5f7855c89c873a3b2fe809a3c2cb92ad9cc84018976968c065f2f0c3be5e40ef">03cc15b6d82d9555a93c89adc11429006deb9cdac0d8e6a99da175bde0545e93358200e05225fa9f6160a4e5fe93c3b10b6b2e5333613a2f4e5ec30dd7a886831781294928eea515d1cf9386c928d80cda901812e273ad0d90928758cbf0d3e515f0a75f87e33e209bf63d30950a824dec0aaf6142f5a6e06ad3696530a535c5089986d7f2d572988199a23c141e0614d3a6806ba103e1d7f17ab178347a9d09280054daaea208bd5cd41ee451ed39984988287e884beb0f59f862b5e6d2a7d2823afc9301ac459bfc91a5e2803cc7d5b490e2044a7eea8e20cfc0d8a7cb93e98f4958a79568dd6199d73807147081f3a451c784e80331cddfb7edf8e19403c285495300fa3111ba919584b75a66c7f9d26fdc1bc18c679a6a16f503635ace5be15eec960bc7f1139b16a7b85001c3e94b24d82293ad93a3fbd110622ae650e5fa7b3d47099d6cddade4ce54ff07a334ca7836445074ca0a0f951a5f324db6e67ad95131db0a5a72f754cb3de3a27df3f2f7c30de41d4c3b651bd88c246674ee019c74731875bbf205b80546012417acaf8d5c7dae8e4738e9e0bc98cb98dd19659a67ee18104a50437a0e823564631d727543b5ae4ec8d0ae6c21b0ad2e1ef237cabf0b3f494223ae996d2f66500ef8f2cd92f4b8b759f011f5587fa781356373571256122181a7cf7491bb5d92634c9775f8283b4548d6e8196e6ee86f3855971e411d61498de7fcfb22e197658b91ea0464e65cf2b43c3ae077835135d3346acfa25d1da88d9f363c8af6dd18179f1e6f6c8eeab057b9e92ade43edd7077d08be8c0f36ff68b809bdb45b735b6e27859d0150ba2f216eb7f8a4e3a5ecc11e31605445a73fb58d429bcc1fa8a679e84847c0eb54e849879cdc413cfe2f8716903293acdbf58af74a0c636ef1151a99d3575ea993699bbb64c7600226a80ffd2b0f956fbd13fca751dcfed0248be145142530bb0fe219027c1b38025ce17a965b5023e23805cefa6cf0e22e855af82d1c3eddc5331420852ae2614fdf98cd973f2443087fc0db2ac20cd66212ff94b09c66a38a1ac6599503c9d08b20b9a79d6d8527b72f3a8e9fc6b294d9068cc55e29faa0f2b5635ba029e22eb2d5acde1fbb63c2238ab47990daa3fe5c2c8261dd369f962318db531a9c30d5447403709224f72711d9264c5eb9b515a069e700a235f7c7e2ad4113a657400ed59e5bc8929fe7b9dfd141404ca71fbe473dc388ad348dc90568a5b16c7bc6bbccd1b3601d92a6584adeed76af42dd781cf8d4f5d39cf29207378af38632fd34c985de2157ff128337067905a975f48196fe536b363483854de2b6ee7c89329f58b06acfe053b0f833b04644b097165ff87249f3a39c0cd98601cf3f1d7594417fa2f12022e2bc9a51c70bc425693f2944e72963d4cd8cc976569fbd302a5aa1687d71603ecb8aa1b86b9f0388f159f91ea21521527a7d68fa87aa573b80a9e09aa4c51c2ec9f3218ccb3912eeb61ab4a5beebe312b249010584705c7bd903e0ff6fa68905a7e1b51e313f98d4beddd94157f91b6d49e7247271c74e1a508c9ccf66fefd30ad78feceee19469380dbd2982f23e451af1973bf57f6247d12c968c76f13397095bbf471f3b803906d50e174db8a585c0859211234be978257807d19d809812129c46c57ccd9eadfa44de9080f23e12121e0ad60872fa2e09ffccddad9aae45a3ba636f6749f3b2312b94840e1bfd38c18c477029d93048cf3fdcc70a8f2ed216e09535fecedd2a2c0d9d503a3c101224c20142db40f5e5d0ceef744b5cf911937aa5ac3f9d6c03b8de15a269edac5c789585b9583d5ab57608aa38344c81121b75d3c56da0b572cb01510e6d2b66f6597e75db9810b787f1eb502647fd399edda29ab595160d081afcbe084fbc0c124f6f0e0d76a6f1fe4a516c064e642a5f71ceacb4c9f6db5aef3a1f6d042a93199d01ad7a5d14125bc81e43fb5409092db556c3cc841873d44eeaa7ff2d994b5e55bd6cc08deaeaf4f96688d25af00556981ef128c8660e17867090ba46fb473eddc952e20359fcd2bc50d782dda913f70972c92bfb901f1d2da182de386fc8c7d1d4ef5f60617d6a8d02fbecb2170bc16d412952fd179c59782ba4d8084dd8b780e86ed31c623a87872b322081d78ab7f5e4cc890f2e31754b48992ac773b6b88c6b08eef9b46fb48327320913a795504744c1d8d7185888160622f87144ec27c877f18bcc733db3e08c7464731d4ea26c96e7b8854692645b84f93545cac97b78f6261644d552b0f8770eb6b079b78cd02015adaffd0b70f51c812110fc12d7621b08fa00b74fe50374e59de79b13f17b386a1de7d3f8daf8aaea3a402849a0e1cf8db87a2c9e4f59d1a1ed697db5f531bdf9c4bb546ffdac4d08b80c63de2070328c5303d525680b800f89c83dca471f3e7da0b9d2ac7be36838c1e4909609492d3907f3031ae6ef00ddf76926a44520e1220b43f9e1fc8e0cbed218bbe187f33047e41c879ed0fe07c7cf37100d8454bf7e584d19abab7158b3e969eb30da892b8f493ae761b0e9ce99955e309c1c57bc033bbe13f6f0a809fc7118354f0849cd3d47769580285fb64d54fa625db3b8ac4a2a233b9c1c821f2386b92582b949c62fa15dc062495314e2a480f1c66f30d2607175ee0bc657b56c196f9433d460fb8d334d2eab5e8ab878cffb88b57d87a7e455050fa2f5592b75f3bb4d6e3a39cb791beba2b1b876d74b76f7fc4fdd4b22c3b0e80a0c3345f8e5b4c7811799f07df70fb809317a01a0bd5ab516a609d2b66058810616e4943bf1225856e32c63060347f7386383a7c2ee5d41f9cc0d0627f311f94a967700d4d09793da32fc9495e391bf5cf5a35762a528b0ad17454abecce188504eb4507c6691d03e9e3e431409795b5bfaae9827d2ad99472fefe2c379d22cd63746a02d8f794f71815ac0ac0533f29141f53ecf5b6a6ca3e78340476347190af4cbad98c919cf6b4a1951d0ca235d49a2dc35ae6ad30bfa8dea03923b42b6b2f39f2a89c38dc9e70d3cf5a38bb09dc74827d3363b06d96407266aa71ab9f0198a247587221c791b6254b617976bcc974c3c28406dea6671373c0771bfe95de6b87a0bab93cdad3e412b6a4c2bd8f47d2786cb06e4e1d918a30ee78ab37d743e6164665630bfbcf825804e8060bf2a4dfd01e33e9a9ea16a8f8f8b33b9454da5b0614237399c50de63eb631c4164039b94b6694f9cab4e9fd33c660aa657bc6ab7c81179e44a4c3e2d369f984252c40497d3d0a44219a98256b2931b3903b7414c742eab7c224e10569d5439723fae2cc3041a91ad7a91493a39b62be4df550b88b646971ea3d883d0728831fb6baaca057ead325017e8e3efa73ece409e0c4cf088c1648b59da3827af21ecdbbf8f7b110fdeb9fb16f01767bcef3733a11f171541439b8085df2dde55051f94488251f92e529d0ff8b20b94506f76a3c9cdc3dbae96c433f1984122cf2bf5587feedc4a26737376cc02ecb9eec37a52db867ca01f44d7e5e96551ac436f120ed2f5316fe4d1a117d5db1fc49826447980054847b6960d0753be7cc9c5b0d71c0d4df5cc250a65c8b61a9e7a9e082b66a08c0421c820049861eea8f61fea51d4149513e3e5d5f1809f65744356dc7f23ceaf6581556d42c4e3abfe4fee58ac5ee50804d9e82ad84a7fde38e098107f742e55acd8cd79e62b898faadaeb154216020730bc9bf5ef26cd7124b0a7b53c2ec8e36aa7c72c830d54daf4347f0b6adae77dbf5a9e0dcf2e5dcb688153aaa7d6aa5feec63fd35a11ecf0af2a8b1b838020b1b9b18d078b89af7e9f02b7b268b7d70c836f086b7ce84d46c39e25f9b5df66c7da135c1162f9576927e0f2689419121abb2f3ca78dea2767afee11923873fcc07a2d0b45fde168e736a727064dd0653cc68edb33ece92bb53cf9bfeb51392444e93a0d74e1b63e27a65e7d7af287fc39d55db437f5e4874dae20d97c735956e41f929c59f178fec6ca381e07838f1d2edd540d1ef6715c1e2d2204b4dc56f2c14cc0e4e40df9fe87c097f00e0b76541ef58b866628c496a8797b9a9799b8fd5731ec70959e6e48ea0af936c6a4ba15197686d5b84fc0f98cb159b7f7e02f68dc124cf2b8d8f080a7cc0c53169903208f7b03054ac54f45315ca0942a8ce4ea36595a487b4a5d8fe8b06995d4bc85369c4d449cf8fa83cf329d7e510a1ea83378dea77648668427dbd820c44e6e45e8042fb5ecb6ae8dc9e41abec0310f255f0a9f5fd71248ea14d79d80a9c81d7c0d7f5f593ae66237b25578d7448c0201031ed0a5062189f2aecc5add4b772bb0092764024377215fcf35d392564d1f1e597b950aa8b528c011f748f1b1ba2b5e6ad3de60b9c4504f0bacd2ea13bf94075f9d0a6dc00a7afe31894af02e65c44695dab264e21428d7fc4f7a97b598b09025c06ad114f1a09c8d74a29c4bdd02248a05790419e4681c7983cdda5dcfe7cb9c854550ec4d04b7dfb98f2ba4bf500cafcd34ffd11118a3230786f5e303ee6b5f9f623cdc0320b47b42df4ceae21b747950af26deb2197c833a215c0e9049c4f93471354e7cd58fc19968054dbdca2e02ffe0e0b21502d57271b705d917ad3107804207a1c39c0b474672ae6b1b305f280511928ee7961f2dd135de251004e2ea0683ae0ebb0e383978a63ca9691a34e9fd4abfd6ca9d11507e9207821a81728b27538ef8a83d1b7192af94b3f4ced3d5439ce4020b485918fdbc580d0f08772035380e582d0cf12b76f8760f1d75f7dbf89fcd131ccfb7359161792cb6271a4aebdcfb3fd176d9541b924f04be2f4b9873d0d1c31eecb4e6b96133a6e105705cc37a3adc9d38057563be601c1d67466dded7305c0eff17816f1c515ef17493cec3497ce84025792191a8d3bff1761f84d2a2a490eb17f17c93ddb5ba71d4e886f03c538b83b72b07d442f3007ed10c899370d5c2e09847df88c16f6c9d3e7fd052f6efaa5258b06e01cf6d749fff70fb7acdc06834596a8a660213e9fbf2cb5fa940e4bc95c81754075a736f7e317674e338dc4a21a8f1ab50183896fa213fea142cc4fda2fb7806c5436150dbac3eb40bdc35df6b550d52f5f588c44120caebae0a7f1db4efb5cb92ee3253c447f82a3a2c9d36f19307fe21e802027ab8ad6f3bd1fce6a2551ce2502d782598ea1ae60759222ba38672aa919b3cb0a0c4ed6f4a8dba13201fd04ff9bcfbdaf563c3cf17247b7180ce6e43b17b63e5721bc3bf4cb0fb3f853310fa452ba7e28e368941e449e94ee70d9dddf36d4a4148660c9114cd8248827696818ccf9a142982df7be97751c20652bd3790fca7d1e8bf9d4ff7c35b01a19e34cc1dc30505075ee7d15f3c521aea0fa74dde37f8f04700f864cbab034cb60f1245012cc1abc5053bcf27cccafc79e1402c553206a89ff4e4ae2d66c5f9711a11ef811e81cdb6419c0230661f9bf24b04a4af63c758cbd75d602ef358b6fa7a8f73a9a86fd7b56c3555b5e5e04419f772a94700022e29b6800781cfd988ee8d765be716fff30aacf757f3ecf9bb6ddadfc3b0635ca377e010a138a1c120cb32183eadeee2c5675770cf477d4ca196475e73400b9842f214ad6c36cd3e2d2c3cc870b0b7133dfc051e4a38777baa5adcad0d30504c6f1a986746cc840085c07a25c0ba148025ea85cc546a1491bfa2734d4ee31ccb7d48ca36d503c8d2831306033239711427b253c8755d8ada07315cecb5c398cf7e4da5a9debb30dbad96fb1d123d609bcde0d3eef849b061db7f72200b7b17e6ea8cdc8987a3f49f698f291326e158da50c63e63c4c1b0ff45f42681368578d06bd36dc65b0fbb16395026c9b093e58702e82e3e39d4e03e3566105ef48de95139f9b51505649c1c3ac6e5ac17d4b154680349a2e775dd6849569b3dcfeddbcf8a74e70a42943368d35113ea32a936eb1652855c267c27fd202aa891780bd96a54d15256b614931167e0b16f26e04288c31175f065c5c91bd3923fe328a0a6eeeba2f6679f0ff6d4136399d4880bf832a8f60649c4aa34938fd24ce75e0b92df2bd14d0bbad4db7d4f4b45425a66ba156d2c61a564a189cf6798eec74fd90d74143341f31fd98f90976ee2fd078b3e36fe968255d624454e8191cf30ff61185a5ba4c32aec5075ee4f760f3324d9e3487344e72a5eba124d9efd253097a5d4c4abe64396c56b7e3fa47f8ed21ae0510131e98a041d1beaafd5a5377b71986e1e85ee981cf5b355057abda8894f8c420521ae6a56d6f94bab0367cb1748c96ab2343d9e417c9d7353be024be7a151b3a12e082a8bc67eb55cc6892e462971862edb5c93732c3655ff19f83b1a6050d709defe34279ea41fbc2d3c50eff5849231c336054e63fd9d53ac0a025811b5f85c27637e14ed06cdfb128accfd1cf09c5c49f93161e70e7d8e5141051bf7542b1c1fb248f9f4f07a1283bc2e2e38aedda0237d7ea8df5ed4e5f31dbbc411419fa22b62eea33780a7c3212fa02af7f957b1ca17fa8d1b1ba15751d83f40b92e8f813e7316bbaa3cb46a8f1569f5fa240ed56ae54c999d87bd2ab5b5a3d838fd4489588c3357ecc6413b94095ad022269d199c49119a305dd6ae2f528b6a585e3e1640d383b6ff2564bac02bef9f6d3f57b14f5e29b858e3086c4b6926c9386132fa0c05a3bf287ce2e84b01f683a5462aad469eda9bdc09de51a5f9969188e921dde12c022c6746b309d280fb9823bd6c757573679ef0a287926f2a71b17dc4f50a030473895812a149b0a56bbc4fad08539e8ccdaa78cdaf21f4e4fda92fd706b23a0b65d08b523cb6f0e8c0a617260392c429248d6d27d9285a562500533d0e1ddc749c702d81b08592afe410379b17c6bb0e9aff061ed2900b606b33bddc5608548bec8607cdf0ad9696d7a59bda17df3e1c00a3b22c6ef2109240763095136242efd65ed7a5f2572e732c55fea96a7a5cd40122749ac5a7ae57320b39076fd34210b2185187ec495ca7be6553bbee5d3c795ab351788cc32e474ffc065039457e36907fca40e977fa91a762b7064a60493db7b2986c234ce6cf6118cfae9df929a537900c34f83770b9d75da50634d969a65e6d2811484a75776843e7b988d18a9b1da0ffd1dcaf04fd65e6983db01c143ff6bb84ef3adc882f2f435e3873847df67f0931fb7c724daf85c14063fe0106d8cb4edce21ec84905577ef62e9bad558a07284adcf4958ff7eec89a1db413d27ea88907430650e16e2f69d6c5fe26417fff598bc0b2dbcb1f0b06dd1e40fb427b294ad509f74c6f9c41d0c203e9205245150525924324b474709883b9d30dc80dd599706b1d5f7732426c74ec00619c85c72b035cbec55c3cc3f8ad70c11345a68904a9d19b9a795a443dfa3e250c14f7bdaef33d571d7e2eefd930cb8a9aec1d4c3f9c9ec419f299aa4446ce32f91356e5c724fe50cf397eede3f5e9b8f2b9b2f6694f30d72d7edba533004b068ec628c3094b7e7c96a2cb222190fe520d6e1688872bc59ae80b124b1077834a002d9aa453f39abd3a61db020347894e554371aae52f80b26e67a87b28901d165988215a6d80b34df1a7e93f1a7fad47bd121d671468c284db8e2ff2f4bfd8a9b5cbd4f1f7ed6521418e132701550bd38ae717cd5289113e26b5bc6bc8118c1b9c5cb0d90e22e3ccdd11dfa880e64936fb9fa7a2f9a02f3bd7c0bd13583b05cfbefd477d2eba5705976f06c44273bc598417bca58dbb9c8693d79a96dba7f095661f41706f1ddd4e123183efcd771c4d1c9312796edba8a863f050918ef60e4cb1cf3b93ceda852f4d95fa7bc9422cca9e5567fe9bb954eea44c800a5b08cbb135f11cce73b560e21868fb57887d25df96c6096a5126c025864dd784d2a60ce8fdf884af617b283437058ba61820df9d2a4f3b827fb487c9062b1259ee9d285306f0339e15698d1b3235da57c4915284c6361c3e7b66a92a2facee6a30d4eececc0e7cf191b4e2de7e1542940efc5e2ab8d98d2576263e17b61bd2c1a8475a0dc3b05f4da198f069d69654f7b38a461a1c305ff857f6d6deecfc04e4b95f0938fef4b2ecd8489e71f994a52451ace57c244d0e77afd68cf94d603a1eec0fc3db37325c5833c7c0827513061ee437a9c0f0f0b84fdd4a4ee064cdfc277465ac0eb773069e731af15ae08acd4287532d8d5473175642b6604e5492b4f5a7956437b1e7c0e26ef905dc9ac210642230192666a93b8f87ec1380139b5a97d13600e3be91b1b1fdd8fd1c0e7717ca5f6fe8e3847ede7db991b76b2db769d8997585cbefb795a75a482565596b2ae95a86a38ef78c48facc8cdb7b188f146d5bb8d73a95a0c0d34fca836b4131084e78dd6d9fdb31e02eacdfd00c65dc6eaeeb5af9790888a3c0a410b5a7fb02d98f3c6e2a02de076bbb5fadba9ec24c5b239643b0e6258e774deb3241d9ce77ec7bae6549958c37e30fdb9373060721a3795ab0ce2ceff0880645a6a2a1c0e8d05227441169f6802e870446b550427ca3c293a7cd8350d20d8cbcd1f8d3686b217b6153f4cd1d0c17c18e2f425223d28d96e2d557ff63a0d6e4054ef405d4ffbe6e6a0129f4b320d26cf224783c8dc1d27e3dbab15e9fbc82591bd7a8c7b648dd3070693a2df9ef8884d3dae4102c04ee67c9552d46deffeebc3abfb3a0c3dc3b9abc06dcb01dd7026cb022fca68d2689c6a5aa8b6fc7b01eb94e4dd588f1aab65baabc2e0df799934a46da7424180cb816cc290ae01afd4c87158f5874f07cbdbe318a1cfcbba63fcdd23d32c890828a2652917b57030319ec95179491f95411e44cd0d805a9b8946e9925bf963d3c5729f02df89f142537bf045c6a1ffa4b0c3cf5f23b85ee516855bb394862d82de3d590fcb42bcf90d968019dc28c34ea06f7b63992936b0b20e3b03998a7672e1380a21e56dec4ea5f34bbabe56c6a26ab63e3ef655377e2b135c1cbd592ecd44fc709450b7d489e1eed109091fc6316a908274060aaf7ab3b92ec378fded971d24d2eb10304f185cc3a765874e10bd7502f440d267f1fba6deb7d325aeed32d349d3d0f986b10965f1d4a16d8fc8e044c278777545cf756ffa3e2ee7394f710317f72ba8391808c062a42e8be49485fee91a875ff006fc1597621f61d337335d28fa2ae5bf458096cd452f5ffa16603e0633eed305c7474c2e506f62d85cfbf2cd6ad68f57a4e8ed741c3eaeb8e87db12f5f38abaebf7deee94f33c31b8ae09fcb35725c35677cff5b6f7a5d44b5e840fe8da89dfcb1c69b432a262c655941052ce6d3cd141115731abc43c4a48bef9586a4c7d7138e9c51b19ee49ca280c7254b0a3de32ce68cc3f81ce574f92657519f6143ea2af9ce60bbd2d3da46ca79d315c57948fcdb1870bf73c080fad4aeb076ee81e37ff7e8e831d7b0e5c0d2ad245dfbd762aff122d5e9ba5401fc1f0b52e46900e6bffecd24e7733fcb19103698af0a236ffd94697c1d7e09811e66787af3199c270343c045d5766f39d08a7d70d0c0e8bfbc3837b13e325ba85450bafea347a16f2d667e8283c409e740c2476e1f9be4721f09b0fd</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-wave">
+      <input class="hbe hbe-input-field hbe-input-field-wave" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-wave" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-wave">您好, 这里需要密码.</span>
+      </label>
+      <svg class="hbe hbe-graphic hbe-graphic-wave" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
+        <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"></path>
+      </svg>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css"></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://20001106.xyz">Aerbeita</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://20001106.xyz/2024/11/21/%E5%8F%91%E5%B8%83%E7%AD%96%E7%95%A5%E7%9A%84%E6%A6%82%E5%BF%B5%E5%92%8C%E5%8C%BA%E5%88%AB/">http://20001106.xyz/2024/11/21/发布策略的概念和区别/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://20001106.xyz" target="_blank">Aerbeita's 博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0/">学习</a><a class="post-meta__tags" href="/tags/%E5%8A%A0%E5%AF%86/">加密</a><a class="post-meta__tags" href="/tags/%E5%8F%91%E5%B8%83/">发布</a></div><div class="post-share"><div class="social-share" data-image="https://i.111666.best/image/u2WJi1iXEoOv0df4Eh8Ku9.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2024/11/21/%E4%BB%80%E4%B9%88%E6%98%AF%E4%BA%91%E6%95%B0%E6%8D%AE%E5%BA%93RDS%EF%BC%9F/" title="什么是云数据库RDS？"><img class="cover" src="https://i.111666.best/image/rT7n8UGvNOiegS0wO31dQn.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">什么是云数据库RDS？</div></div><div class="info-2"><div class="info-item-1">云服务器简介云数据库RDS（Relational Database Service，简称RDS）是一种基于云计算平台的稳定可靠、弹性伸缩、便捷管理的在线云数据库服务。云数据库RDS支持以下引擎：  MySQL PostgreSQL SQL Server MariaDB  云数据库RDS服务具有完善的性能监控体系和多重安全防护措施，并提供了专业的数据库管理平台，让用户能够在云上轻松的进行设置和扩展云数据库。通过云数据库RDS服务的管理控制台，用户无需编程就可以执行所有必需任务，简化运营流程，减少日常运维工作量，从而专注于开发应用和业务发展。 如何使用云数据库RDS您可以通过以下两种方式使用关系型数据库。  管理控制台：您可以使用管理控制台为您提供的Web界面完成关系型数据库的相关操作。 API：您可以编写代码调用API使用关系型数据库，请参考《云数据库RDS API参考》。  了解常用概念和什么是云数据库RDS可以帮助您更好地选购云数据库RDS。 云数据库 RDS for MySQL  MySQL是目前最受欢迎的开源数据库之一，其性能卓越，搭配LAMP（Linux +...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2024/11/11/Gitlens%E7%9A%84%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/" title="Gitlens 的使用心得"><img class="cover" src="https://i.111666.best/image/zIF8lbmIKZSrsKkdCamCvt.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-11</div><div class="info-item-2">Gitlens 的使用心得</div></div><div class="info-2"><div class="info-item-1">记录一下 Gitlens 的使用心得，以及一些常用的快捷键。</div></div></div></a><a class="pagination-related" href="/2024/03/06/Docker-%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/" title="Docker 基础学习"><img class="cover" src="https://i.111666.best/image/OfnpovuuC3NEISzgGN1fjy.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-06</div><div class="info-item-2">Docker 基础学习</div></div><div class="info-2"><div class="info-item-1">Docker 的入门学习，主要参考“阮一峰的网络日志”。</div></div></div></a><a class="pagination-related" href="/2024/05/09/Front-matter-%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AE%A4%E8%AF%86/" title="Front-matter 的基本认识（Anzhiyu）"><img class="cover" src="https://i.111666.best/image/AHOcaTsuObqK2qcPVIkZuk.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-09</div><div class="info-item-2">Front-matter 的基本认识（Anzhiyu）</div></div><div class="info-2"><div class="info-item-1">简单介绍 Front-matter 的基本用法，基于 Anzhiyu 的主题，部分内容可能与原生 Hexo 主题有所不同。</div></div></div></a><a class="pagination-related" href="/2024/09/02/Linux%E5%B0%8F%E8%AE%B0%E4%B9%8Brsync%E5%91%BD%E4%BB%A4/" title="Linux 小记 —— rsync命令"><img class="cover" src="https://i.111666.best/image/kwGMXPwdWpaUSFoc6njZQb.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-09-02</div><div class="info-item-2">Linux 小记 —— rsync命令</div></div><div class="info-2"><div class="info-item-1">数据同步工具 —— rsync。</div></div></div></a><a class="pagination-related" href="/2024/04/01/Hexo%E7%9A%84%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" title="Hexo 的常用指令"><img class="cover" src="https://i.111666.best/image/dFko5wL3wzMFRKw8oL2JWz.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-01</div><div class="info-item-2">Hexo 的常用指令</div></div><div class="info-2"><div class="info-item-1">简单介绍 Hexo 的常用指令。</div></div></div></a><a class="pagination-related" href="/2024/05/07/Java%E7%9A%84Process-%E9%81%BF%E5%9D%91%E5%B0%8F%E8%AE%B0/" title="Java 的 Process 避坑小记"><img class="cover" src="https://i.111666.best/image/43l9Ha8wcDLEgXXQ6nH0SR.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-07</div><div class="info-item-2">Java 的 Process 避坑小记</div></div><div class="info-2"><div class="info-item-1">Process 类用于启动和管理外部进程。它允许你在 Java 程序中执行系统命令，并与执行的外部进程进行交互。</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Aerbeita</div><div class="author-info-description">循此苦旅，直抵群星</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">24</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">21</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Barry-Aerbeita-zhou"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/Barry-Aerbeita-zhou" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:2981571473@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content toc-div-class" style="display:none"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3"><span class="toc-number">1.</span> <span class="toc-text">一、参考文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E7%AE%80%E4%BB%8B"><span class="toc-number">2.</span> <span class="toc-text">二、简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E4%B8%8D%E5%90%8C%E7%9A%84%E5%8F%91%E5%B8%83%E7%AD%96%E7%95%A5%E5%8F%8A%E7%89%B9%E7%82%B9%E4%BB%8B%E7%BB%8D"><span class="toc-number">3.</span> <span class="toc-text">三、不同的发布策略及特点介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%93%9D%E7%BB%BF%E5%8F%91%E5%B8%83"><span class="toc-number">3.1.</span> <span class="toc-text">蓝绿发布</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%A2%E9%BB%91%E5%8F%91%E5%B8%83"><span class="toc-number">3.2.</span> <span class="toc-text">红黑发布</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%81%B0%E5%BA%A6%E5%8F%91%E5%B8%83"><span class="toc-number">3.3.</span> <span class="toc-text">灰度发布</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BB%9A%E5%8A%A8%E5%8F%91%E5%B8%83"><span class="toc-number">3.4.</span> <span class="toc-text">滚动发布</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#A-B%E6%B5%8B%E8%AF%95"><span class="toc-number">3.5.</span> <span class="toc-text">A&#x2F;B测试</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/11/21/%E5%8F%91%E5%B8%83%E7%AD%96%E7%95%A5%E7%9A%84%E6%A6%82%E5%BF%B5%E5%92%8C%E5%8C%BA%E5%88%AB/" title="发布策略的概念和区别"><img src="https://i.111666.best/image/u2WJi1iXEoOv0df4Eh8Ku9.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="发布策略的概念和区别"/></a><div class="content"><a class="title" href="/2024/11/21/%E5%8F%91%E5%B8%83%E7%AD%96%E7%95%A5%E7%9A%84%E6%A6%82%E5%BF%B5%E5%92%8C%E5%8C%BA%E5%88%AB/" title="发布策略的概念和区别">发布策略的概念和区别</a><time datetime="2024-11-21T08:27:25.000Z" title="发表于 2024-11-21 16:27:25">2024-11-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/11/21/%E4%BB%80%E4%B9%88%E6%98%AF%E4%BA%91%E6%95%B0%E6%8D%AE%E5%BA%93RDS%EF%BC%9F/" title="什么是云数据库RDS？"><img src="https://i.111666.best/image/rT7n8UGvNOiegS0wO31dQn.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="什么是云数据库RDS？"/></a><div class="content"><a class="title" href="/2024/11/21/%E4%BB%80%E4%B9%88%E6%98%AF%E4%BA%91%E6%95%B0%E6%8D%AE%E5%BA%93RDS%EF%BC%9F/" title="什么是云数据库RDS？">什么是云数据库RDS？</a><time datetime="2024-11-21T06:38:31.000Z" title="发表于 2024-11-21 14:38:31">2024-11-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/11/21/Java%E5%BC%80%E5%8F%91%E4%B8%AD%E5%AE%9E%E4%BD%93%E7%B1%BB%E7%9A%84%E5%8C%BA%E5%88%AB/" title="Java开发中实体类的区别"><img src="https://i.111666.best/image/82WGcMatC6cmT2SOgpXGvK.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java开发中实体类的区别"/></a><div class="content"><a class="title" href="/2024/11/21/Java%E5%BC%80%E5%8F%91%E4%B8%AD%E5%AE%9E%E4%BD%93%E7%B1%BB%E7%9A%84%E5%8C%BA%E5%88%AB/" title="Java开发中实体类的区别">Java开发中实体类的区别</a><time datetime="2024-11-21T03:20:07.000Z" title="发表于 2024-11-21 11:20:07">2024-11-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/11/11/Gitlens%E7%9A%84%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/" title="Gitlens 的使用心得"><img src="https://i.111666.best/image/zIF8lbmIKZSrsKkdCamCvt.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Gitlens 的使用心得"/></a><div class="content"><a class="title" href="/2024/11/11/Gitlens%E7%9A%84%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/" title="Gitlens 的使用心得">Gitlens 的使用心得</a><time datetime="2024-11-11T09:10:35.000Z" title="发表于 2024-11-11 17:10:35">2024-11-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/11/08/SDKMAN%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" title="SDKMAN 使用教程"><img src="https://sdkman.io/assets/img/sdk-man-small-pattern.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SDKMAN 使用教程"/></a><div class="content"><a class="title" href="/2024/11/08/SDKMAN%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" title="SDKMAN 使用教程">SDKMAN 使用教程</a><time datetime="2024-11-08T08:46:53.000Z" title="发表于 2024-11-08 16:46:53">2024-11-08</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/img/footer.jpg);"><div id="footer-wrap"><div class="copyright">&copy;2024 By Aerbeita</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><div class="js-pjax"><script>(() => {
+  let initFn = window.walineFn || null
+  const isShuoshuo = GLOBAL_CONFIG_SITE.isShuoshuo
+  const option = null
+
+  const destroyWaline = ele => ele.destroy()
+
+  const initWaline = (Fn, el = document, path = window.location.pathname) => {
+    const waline = Fn({
+      el: el.querySelector('#waline-wrap'),
+      serverURL: 'https://waline.20001106.xyz/',
+      pageview: true,
+      dark: 'html[data-theme="dark"]',
+      comment: true,
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyWaline = () => {
+        destroyWaline(waline)
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+  }
+
+  const loadWaline = (el, path) => {
+    if (initFn) initWaline(initFn, el, path)
+    else {
+      btf.getCSS('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.css')
+        .then(() => import('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.js'))
+        .then(({ init }) => {
+          initFn = init || Waline.init
+          initWaline(initFn, el, path)
+          window.walineFn = initFn
+        })
+    }
+  }
+
+  if (isShuoshuo) {
+    'Waline' === 'Waline'
+      ? window.shuoshuoComment = { loadComment: loadWaline } 
+      : window.loadOtherComment = loadWaline
+    return
+  }
+
+  if ('Waline' === 'Waline' || !false) {
+    if (false) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+    else setTimeout(loadWaline, 0)
+  } else {
+    window.loadOtherComment = loadWaline
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
