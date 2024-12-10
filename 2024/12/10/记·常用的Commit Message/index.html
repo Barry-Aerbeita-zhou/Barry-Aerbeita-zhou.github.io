@@ -1,0 +1,251 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>记·常用的Commit Message | Aerbeita's 博客</title><meta name="author" content="Aerbeita,2981571473@qq.com"><meta name="copyright" content="Aerbeita"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="浅浅的记录一下自己平时会用到的Commit Message，之后直接复制该文章即可。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="记·常用的Commit Message">
+<meta property="og:url" content="http://20001106.xyz/2024/12/10/%E8%AE%B0%C2%B7%E5%B8%B8%E7%94%A8%E7%9A%84Commit%20Message/index.html">
+<meta property="og:site_name" content="Aerbeita&#39;s 博客">
+<meta property="og:description" content="浅浅的记录一下自己平时会用到的Commit Message，之后直接复制该文章即可。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.111666.best/image/1bqdKKWgD3oqwp8lJOvyaC.jpg">
+<meta property="article:published_time" content="2024-12-10T06:22:56.000Z">
+<meta property="article:modified_time" content="2024-12-10T07:31:12.467Z">
+<meta property="article:author" content="Aerbeita">
+<meta property="article:tag" content="学习">
+<meta property="article:tag" content="Git">
+<meta property="article:tag" content="加密">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.111666.best/image/1bqdKKWgD3oqwp8lJOvyaC.jpg"><link rel="shortcut icon" href="/img/favicons/favicon.ico"><link rel="canonical" href="http://20001106.xyz/2024/12/10/%E8%AE%B0%C2%B7%E5%B8%B8%E7%94%A8%E7%9A%84Commit%20Message/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '记·常用的Commit Message',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  isShuoshuo: false
+}</script><script src="/live2d-widget/autoload.js"></script><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">27</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">24</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li><li><a class="site-page child" href="/essays/"><i class="fa-fw fas fa-edit"></i><span> 随笔</span></a></li><li><a class="site-page child" href="/notes/"><i class="fa-fw fas fa-sticky-note"></i><span> 笔记</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-gamepad"></i><span> 娱乐</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-face-smile-wink"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://i.111666.best/image/1bqdKKWgD3oqwp8lJOvyaC.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Aerbeita's 博客</span></a><a class="nav-page-title" href="/"><span class="site-name">记·常用的Commit Message</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li><li><a class="site-page child" href="/essays/"><i class="fa-fw fas fa-edit"></i><span> 随笔</span></a></li><li><a class="site-page child" href="/notes/"><i class="fa-fw fas fa-sticky-note"></i><span> 笔记</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-gamepad"></i><span> 娱乐</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-face-smile-wink"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">记·常用的Commit Message</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-12-10T06:22:56.000Z" title="发表于 2024-12-10 14:22:56">2024-12-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-12-10T07:31:12.467Z" title="更新于 2024-12-10 15:31:12">2024-12-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">9</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>1分钟</span></span><span class="post-meta-separator">|</span><span id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span class="waline-pageview-count" data-path="/2024/12/10/%E8%AE%B0%C2%B7%E5%B8%B8%E7%94%A8%E7%9A%84Commit%20Message/"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2024/12/10/%E8%AE%B0%C2%B7%E5%B8%B8%E7%94%A8%E7%9A%84Commit%20Message/#post-comment"><span class="waline-comment-count" data-path="/2024/12/10/%E8%AE%B0%C2%B7%E5%B8%B8%E7%94%A8%E7%9A%84Commit%20Message/"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="b2b2e94aea085a6687ab835c643157f8cce43b47778fd6b4da285eae053abe3b">03cc15b6d82d9555a93c89adc1142900ad59132509860cb91ce87531192f1f96246b93765d47ec8e287da610f48d4b8c0d70bea0f0b0029be22bc9d08ce6b3044895c5aae02acd5c462d15f19bddc1bdfdaa6f94fb2b9d709395a2896323485ea4e8a3bfade5490d778eaca7720763a2fe72fe7828ee87339532ac2c39e821b972cf47e3c55dbdc041b35c670f4886680ef1e16f028a4e92057a47457508cf89bda667486ba9491d40a7937ff2bfd0b95c1df3ed56d030a36296f0592cff5e6fbeb6e813d4b56a14d438c69a7470762f9cedce92458a5e7d9628f43de42aef7a919f4e49f85a42aadadaf4d901f3dfd984d171505c01a70ee3f1de68bc9907137a45684b1633525d97c1ea52365eb59fd9076570e4eb97c18a74745c7ec250a1403913787b1304495a2a1d3218b9bd6ebeff600cd4927ddb070a4bdcf7217adf91917edb49dcfda1d6aea95c177419d08a819f2380c26b6784beba9a410e730d35c8a678eee8b6ae592d6011fe8deb04e8c5bddf8e3a9d26e06142f2b1b042b5eb97accbca2a00a647f2afd4dab015e814abc1f076a2e5e534b8484c81d6c430d99bdd91ba85333bc0c00d3b68256094e72ca04c6e0a1d0eff41070bece02cb15d7be563c28dc08397805ebc301057f532f377fc21ef1fc5eaa4b393f2110302fa055b770e629419b76b383ef63491a83ddb85c3b0b81245bf893c3956155ec36ba4066646a12a83be80df841dcd35fc24ad93deb8a88ff0543d0f09ad7eed00e648789385ca9b7299b3d7cd7fec232666564ca0f4bb4500909a1dba3587dfeae4d2f5f9ee4e093e07666710a5c49b50860975da24e02b48a97d479bebeb775952c8c0f48fabeacead64b7994693fc813f8a3f0a55f3bcd8ea2b472c6398f0abe8d3f89e265681e6dfb9d8c2e33a1bc27e66cc55f23302c3c0a47d2371b6d24952adeb77924ab313a0404dc4b4124a45413b0e2e1886ba6e7fe2269c6fa07bab9e8c2e05b80b96c0143f65a87038a7b70a45a74adaa5cfef5af9e0044c2d89aefa6157ce84ecec31415552bde2ac4031e45a325ef5120b1c5f1422baef30cfd7fd8e21f71e607e3fa693341bf4c20ef8bd2c87cb2463a3227ffcaaeac522be6539966d1c0e9d4775c98f893455f89cc641ee1488b8ef0098f1c8f948df06b6cd25223e668df2f199bbd78eb32f6d6777d2f0de8d9a63e0478057215acb864428b1c36a5ee38b1671d73d4a5826cf4ecd3c35b9d02c82d29fb895f221bef417776176fed67e459aa57dba7a82d10c7063525c78343260d54d42d23839ab2bb22f3b6aee3b4c5980500fba4c466c1e680313f6a22241c6c3c6929a5cf967f8e695d70a71b9777a48f3995ec7b139be5f47f1f60e741f5c0cda0ec3da0169eee75a3bf34114b0d58385d68c05148360cf1c190ff2a851b5c3efaf3aacc4e4922fdf0df3bb68735f84e1053ef5e80549863c51a33b0596b952d90bb491266a64dde7c32789150a2e5deba3c7fa2cfbea09dd65e2aa056ee412ab4619fc33af89132782bff2e6782cc5f9c98dab6a96ced6bc18555d8d8762d48b0fb5d17d7715496dc890f55030d42bf12e0539a5fc57bff7da948e8668c0fdf8f5466580a13bc2fc</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-wave">
+      <input class="hbe hbe-input-field hbe-input-field-wave" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-wave" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-wave">您好, 这里需要密码.</span>
+      </label>
+      <svg class="hbe hbe-graphic hbe-graphic-wave" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
+        <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"></path>
+      </svg>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css"></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://20001106.xyz">Aerbeita</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://20001106.xyz/2024/12/10/%E8%AE%B0%C2%B7%E5%B8%B8%E7%94%A8%E7%9A%84Commit%20Message/">http://20001106.xyz/2024/12/10/记·常用的Commit Message/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://20001106.xyz" target="_blank">Aerbeita's 博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0/">学习</a><a class="post-meta__tags" href="/tags/Git/">Git</a><a class="post-meta__tags" href="/tags/%E5%8A%A0%E5%AF%86/">加密</a></div><div class="post-share"><div class="social-share" data-image="https://i.111666.best/image/1bqdKKWgD3oqwp8lJOvyaC.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2024/12/03/MySQL%E7%9A%84%E6%89%A7%E8%A1%8C%E8%AE%A1%E5%88%92%E8%AF%A6%E8%A7%A3/" title="MySQL的执行计划详解（Explain）"><img class="cover" src="https://i.111666.best/image/4Rv7wIBOn0WUpCz1FovZ8i.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">MySQL的执行计划详解（Explain）</div></div><div class="info-2"><div class="info-item-1">从 CSDN 中 'zhz小白' 的帖子中学习到 MySQL 的执行计划，记个笔记。</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2024/11/11/Gitlens%E7%9A%84%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/" title="Gitlens 的使用心得"><img class="cover" src="https://i.111666.best/image/zIF8lbmIKZSrsKkdCamCvt.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-11</div><div class="info-item-2">Gitlens 的使用心得</div></div><div class="info-2"><div class="info-item-1">记录一下 Gitlens 的使用心得，以及一些常用的快捷键。</div></div></div></a><a class="pagination-related" href="/2024/11/21/%E5%8F%91%E5%B8%83%E7%AD%96%E7%95%A5%E7%9A%84%E6%A6%82%E5%BF%B5%E5%92%8C%E5%8C%BA%E5%88%AB/" title="发布策略的概念和区别"><img class="cover" src="https://i.111666.best/image/u2WJi1iXEoOv0df4Eh8Ku9.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-21</div><div class="info-item-2">发布策略的概念和区别</div></div><div class="info-2"><div class="info-item-1">  ...</div></div></div></a><a class="pagination-related" href="/2024/11/08/%E5%BC%80%E6%BA%90%E4%BB%93%E5%BA%93-Commit-%E8%A7%84%E8%8C%83/" title="开源仓库 Commit 规范"><img class="cover" src="https://i.111666.best/image/ruEgq3ihewO9PK67o7n7Lx.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-08</div><div class="info-item-2">开源仓库 Commit 规范</div></div><div class="info-2"><div class="info-item-1">从L站 XnneHang 的帖子中学习到 Git Commit 规范，做个记录，并分享给大家。</div></div></div></a><a class="pagination-related" href="/2024/03/06/Docker-%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/" title="Docker 基础学习"><img class="cover" src="https://i.111666.best/image/OfnpovuuC3NEISzgGN1fjy.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-06</div><div class="info-item-2">Docker 基础学习</div></div><div class="info-2"><div class="info-item-1">Docker 的入门学习，主要参考“阮一峰的网络日志”。</div></div></div></a><a class="pagination-related" href="/2024/05/09/Front-matter-%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AE%A4%E8%AF%86/" title="Front-matter 的基本认识（Anzhiyu）"><img class="cover" src="https://i.111666.best/image/AHOcaTsuObqK2qcPVIkZuk.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-09</div><div class="info-item-2">Front-matter 的基本认识（Anzhiyu）</div></div><div class="info-2"><div class="info-item-1">简单介绍 Front-matter 的基本用法，基于 Anzhiyu 的主题，部分内容可能与原生 Hexo 主题有所不同。</div></div></div></a><a class="pagination-related" href="/2024/04/01/Hexo%E7%9A%84%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" title="Hexo 的常用指令"><img class="cover" src="https://i.111666.best/image/dFko5wL3wzMFRKw8oL2JWz.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-01</div><div class="info-item-2">Hexo 的常用指令</div></div><div class="info-2"><div class="info-item-1">简单介绍 Hexo 的常用指令。</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Aerbeita</div><div class="author-info-description">循此苦旅，直抵群星</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">27</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">24</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Barry-Aerbeita-zhou"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/Barry-Aerbeita-zhou" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:2981571473@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content toc-div-class" style="display:none"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84Commit-Message"><span class="toc-number">1.</span> <span class="toc-text">常用的Commit Message</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/12/10/%E8%AE%B0%C2%B7%E5%B8%B8%E7%94%A8%E7%9A%84Commit%20Message/" title="记·常用的Commit Message"><img src="https://i.111666.best/image/1bqdKKWgD3oqwp8lJOvyaC.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="记·常用的Commit Message"/></a><div class="content"><a class="title" href="/2024/12/10/%E8%AE%B0%C2%B7%E5%B8%B8%E7%94%A8%E7%9A%84Commit%20Message/" title="记·常用的Commit Message">记·常用的Commit Message</a><time datetime="2024-12-10T06:22:56.000Z" title="发表于 2024-12-10 14:22:56">2024-12-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/03/MySQL%E7%9A%84%E6%89%A7%E8%A1%8C%E8%AE%A1%E5%88%92%E8%AF%A6%E8%A7%A3/" title="MySQL的执行计划详解（Explain）"><img src="https://i.111666.best/image/4Rv7wIBOn0WUpCz1FovZ8i.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MySQL的执行计划详解（Explain）"/></a><div class="content"><a class="title" href="/2024/12/03/MySQL%E7%9A%84%E6%89%A7%E8%A1%8C%E8%AE%A1%E5%88%92%E8%AF%A6%E8%A7%A3/" title="MySQL的执行计划详解（Explain）">MySQL的执行计划详解（Explain）</a><time datetime="2024-12-03T01:26:41.000Z" title="发表于 2024-12-03 09:26:41">2024-12-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/11/28/Redis%E7%9A%84%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%8F%8A%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/" title="Redis的常用数据结构及使用场景"><img src="https://i.111666.best/image/XS6LyOHqGs5x0hiCABtO4T.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Redis的常用数据结构及使用场景"/></a><div class="content"><a class="title" href="/2024/11/28/Redis%E7%9A%84%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%8F%8A%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/" title="Redis的常用数据结构及使用场景">Redis的常用数据结构及使用场景</a><time datetime="2024-11-28T07:54:47.000Z" title="发表于 2024-11-28 15:54:47">2024-11-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/11/21/%E5%8F%91%E5%B8%83%E7%AD%96%E7%95%A5%E7%9A%84%E6%A6%82%E5%BF%B5%E5%92%8C%E5%8C%BA%E5%88%AB/" title="发布策略的概念和区别"><img src="https://i.111666.best/image/u2WJi1iXEoOv0df4Eh8Ku9.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="发布策略的概念和区别"/></a><div class="content"><a class="title" href="/2024/11/21/%E5%8F%91%E5%B8%83%E7%AD%96%E7%95%A5%E7%9A%84%E6%A6%82%E5%BF%B5%E5%92%8C%E5%8C%BA%E5%88%AB/" title="发布策略的概念和区别">发布策略的概念和区别</a><time datetime="2024-11-21T08:27:25.000Z" title="发表于 2024-11-21 16:27:25">2024-11-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/11/21/%E4%BB%80%E4%B9%88%E6%98%AF%E4%BA%91%E6%95%B0%E6%8D%AE%E5%BA%93RDS%EF%BC%9F/" title="什么是云数据库RDS？"><img src="https://i.111666.best/image/rT7n8UGvNOiegS0wO31dQn.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="什么是云数据库RDS？"/></a><div class="content"><a class="title" href="/2024/11/21/%E4%BB%80%E4%B9%88%E6%98%AF%E4%BA%91%E6%95%B0%E6%8D%AE%E5%BA%93RDS%EF%BC%9F/" title="什么是云数据库RDS？">什么是云数据库RDS？</a><time datetime="2024-11-21T06:38:31.000Z" title="发表于 2024-11-21 14:38:31">2024-11-21</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/img/footer.jpg);"><div id="footer-wrap"><div class="copyright">&copy;2024 By Aerbeita</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><div class="js-pjax"><script>(() => {
+  let initFn = window.walineFn || null
+  const isShuoshuo = GLOBAL_CONFIG_SITE.isShuoshuo
+  const option = null
+
+  const destroyWaline = ele => ele.destroy()
+
+  const initWaline = (Fn, el = document, path = window.location.pathname) => {
+    const waline = Fn({
+      el: el.querySelector('#waline-wrap'),
+      serverURL: 'https://waline.20001106.xyz/',
+      pageview: true,
+      dark: 'html[data-theme="dark"]',
+      comment: true,
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyWaline = () => {
+        destroyWaline(waline)
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+  }
+
+  const loadWaline = (el, path) => {
+    if (initFn) initWaline(initFn, el, path)
+    else {
+      btf.getCSS('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.css')
+        .then(() => import('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.js'))
+        .then(({ init }) => {
+          initFn = init || Waline.init
+          initWaline(initFn, el, path)
+          window.walineFn = initFn
+        })
+    }
+  }
+
+  if (isShuoshuo) {
+    'Waline' === 'Waline'
+      ? window.shuoshuoComment = { loadComment: loadWaline } 
+      : window.loadOtherComment = loadWaline
+    return
+  }
+
+  if ('Waline' === 'Waline' || !false) {
+    if (false) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+    else setTimeout(loadWaline, 0)
+  } else {
+    window.loadOtherComment = loadWaline
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_clock_anzhiyu_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock_anzhiyu')
+    if(parent_div_git) {
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var qweather_key = '3ffe7d7f743d40da8acaa00ac273222f';
+  var gaud_map_key = '6a0c705088b8136653c1759fea7159b0';
+  var baidu_ak_key = 'undefined';
+  var flag = 0;
+  var clock_rectangle = '118.0853479,24.4801069';
+  var clock_default_rectangle_enable = 'true';
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  </script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.js"></script><!-- hexo injector body_end end --></body></html>
